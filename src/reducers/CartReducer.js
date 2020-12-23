@@ -5,13 +5,15 @@ const initialState = {
   delivey:0
 };
 
+
 export default (state = initialState, action) => {
   switch(action.type) {
       case 'ADD_PRODUCT':
-          let products = [...state.products];
-          let id = action.payload.data.id;
-
+        let products = [...state.products]; // cópia do products
+          let id = action.payload.data.id; // id do produto que esta sendo procurado
+          
           let index = products.findIndex(item => item.id === id);
+
           if (index > -1) {
             products[index].qt += action.payload.qt;
           } else {
@@ -20,10 +22,9 @@ export default (state = initialState, action) => {
               qt: action.payload.qt
             });
           }
-          console.log(products);
+          
           return {...state, products};
       break;
-  }
-
+  }  
   return state;
 }

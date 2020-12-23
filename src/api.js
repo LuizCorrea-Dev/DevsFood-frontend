@@ -19,7 +19,7 @@ export default {
         
         let fields = {}; // é obj de campos
             //se category for diferente de 0 , manda ela.
-            if(category != 0) {
+            if(category !== 0) {
                 fields.category = category;
             }
             //se page for maior de 0 , manda ela.
@@ -32,7 +32,6 @@ export default {
             }
 
             //transformar os resultados do obj em uma string para ser adicionada na url
-               
                 /* exemplo: {category: 2, page: 1, search: 'bolo'}
                             "category=2&page=1&search=bolo" 
                 */     
@@ -41,6 +40,7 @@ export default {
         const res = await fetch(BASE+'/products?'+queryString); // requisição de produtos
         const json = await res.json(); // resposta em json
         return json;
+        
     }
 
     

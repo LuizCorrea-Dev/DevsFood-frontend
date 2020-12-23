@@ -16,7 +16,7 @@ export const Container = styled.div`
             border-radius: 10px;           
         `;
 
-        export const ProducInfoArea = styled.div`
+        export const ProductInfoArea = styled.div`
             flex: 1;
             display:flex;
             flex-direction: column;

@@ -11,7 +11,6 @@ import {
     ProductPaginationItem
 } from './styled';
 
-
 import api from '../../api';
 
 import Header from '../../components/Header';
@@ -30,17 +29,18 @@ export default () => {
     const [products, setProducts] = useState([]); // armazena os produtos / é uma Array por ser uma lista
     const [totalPages, setTotalPages] = useState(0); // armazena o numero total de paginas a serem exibidas
 
-    const [activeCategory, setActiveCategory] = useState(0); // state de funcionamento:  armazena o id da categoria ativa 
-    const [activePage, setActivePage] = useState(1); // state de funcionamento:  armazena a página atual
-    const [activeSearch, setActiveSearch] = useState(0); // state de funcionamento:  armazena a página atual
-    
     const [modalStatus, setModalStatus] = useState(false); // state de funcionamento do modal
     const [modalData, setModalData] = useState({}); // state de funcionamento das informaçoes do modal
+
+    const [activeCategory, setActiveCategory] = useState(0); // state de funcionamento:  armazena o id da categoria ativa 
+    const [activePage, setActivePage] = useState(1); // state de funcionamento:  armazena a página atual
+    const [activeSearch, setActiveSearch] = useState(''); // state de funcionamento:  armazena a página atual
+    
 
 
     // FUNÇÃO QUE CONSULTA A API PARA PEGAR OS PRODUTOS
         const getProducts = async () => { 
-            const prods = await api.getProducts(activeCategory,activePage,activeSearch);
+            const prods = await api.getProducts(activeCategory, activePage, activeSearch);
             if (prods.error == '') { // se não haver nenhunm erro
                 setProducts( prods.result.data ); // Array de resultado - Lista de produtos 
                 setTotalPages(prods.result.pages); // preenche a total de paginas
@@ -84,7 +84,7 @@ export default () => {
             }, 2000); // demora 2 segundos
         },[headerSearch]);   
         
-        const handleProducyClick = (data) => {
+        const handleProductClick = (data) => {
             setModalData(data);
             setModalStatus(true);
         };
@@ -134,7 +134,7 @@ export default () => {
                             <ProductItem
                                 key={index}
                                 data={item}
-                                onClick={handleProducyClick}
+                                onClick={handleProductClick}
                             />
                         ))}
                     </ProductList>

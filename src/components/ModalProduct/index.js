@@ -5,7 +5,7 @@ import {
     Container,
     ProductArea,
     ProductPhoto,
-    ProducInfoArea,
+    ProductInfoArea,
     ProductDetails,
     ProductName,
     ProductIngredients,
@@ -24,6 +24,7 @@ export default ({ data, setStatus }) => {
     useEffect(()=>{
         setQt(1);
     }, [data]);
+
 
     const [qt, setQt] = useState(1);
 
@@ -54,28 +55,36 @@ export default ({ data, setStatus }) => {
 
                 <ProductPhoto src={data.image} />
 
-                <ProducInfoArea>
+                <ProductInfoArea>
+                    
                     <ProductDetails>
                         <ProductName>{data.name} </ProductName>
                         <ProductIngredients>{data.ingredients} </ProductIngredients>
                     </ProductDetails>
+                    
                     <ProductQuantilyArea>
+                       
                         <ProductQuantity>
                             <ProductQtImage onClick={handleMinusQt} src="/assets/minus.png" />
                             <ProductQtText>{qt}</ProductQtText>
                             <ProductQtImage onClick={handlePlusQt}  src="/assets/plus.png" />
                         </ProductQuantity>
+                        
                         <ProductPrice>
                             R$ {(data.price * qt).toFixed(2)}
                         </ProductPrice>
+
                     </ProductQuantilyArea>
-                </ProducInfoArea>
+
+                </ProductInfoArea>
 
             </ProductArea>
+            
             <ProductButtons>
                 <ProductButton small={true} onClick={handleCancelButton}>Cancelar</ProductButton>
                 <ProductButton onClick={handleAddToCart}>Adicionar ao Carrinho</ProductButton>
             </ProductButtons>
+
         </Container>
     );
 }

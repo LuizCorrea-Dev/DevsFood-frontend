@@ -13,12 +13,12 @@ import {
 
 export default ({data, onClick}) => { // receba dados da api
 
-    const hadleClick = () => {
+    const handleClick = () => {
         onClick(data);
     }
 
     return (
-        <Container onClick={hadleClick} >
+        <Container onClick={handleClick} >
             <ProductPhotoArea>
                 <ProductPhoto src={data.image} />
             </ProductPhotoArea>

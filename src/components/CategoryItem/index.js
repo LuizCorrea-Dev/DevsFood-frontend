@@ -5,7 +5,7 @@ export default ({data, activeCategory, setActiveCategory}) => { // array com os 
     // quando o usuário clicar em categoria expecífica
     const handleCategoryClick = () => {
         setActiveCategory( data.id ); // será enviado o id da categoria expecífica
-    } // quando isso acontecer, automaticamente troca o o state, renderizando a categoria ativa quia foi alterada.
+    } // quando isso acontecer, automaticamente troca o state, renderizando a categoria ativa quia foi alterada.
 
     return (
         <Container 
