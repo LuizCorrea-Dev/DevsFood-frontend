@@ -20,11 +20,11 @@ export default ({search, onSearch}) => {
         <Container>
             <Logo src="/assets/logo.png" />
             <SearchInput 
-                type="test" 
+                type="text" 
                 placeholder="Digite um produto..."
                 value= {search} // tudo digitado vai para a state =setHeaderSearch da HomeScreem                
                 onChange={handleChange} // quando for efetuado alguma alteração no campo, pega o valo e envia para o onSearch
-                active={inputActive} // comesa com o campo não ativo
+                active={inputActive} // começa com o campo não ativo
                 onFocus={handleInputFocus} // quando cursor aponta para o campo
                 onBlur={handleInputBlur} // quando cursor saide cima do campo
             />
